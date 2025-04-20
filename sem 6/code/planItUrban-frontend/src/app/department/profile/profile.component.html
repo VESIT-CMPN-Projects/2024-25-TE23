@@ -1,0 +1,85 @@
+<div class="department-profile-container">
+  <app-dept-side-nav></app-dept-side-nav>
+  <div class="profile-content">
+    <h2>Department Profile</h2>
+    <form [formGroup]="departmentForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="dept_id">Department ID</label>
+        <input
+          type="text"
+          id="dept_id"
+          formControlName="dept_id"
+          placeholder="Enter Department ID"
+          readonly
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="dept_name">Department Name</label>
+        <input
+          type="text"
+          id="dept_name"
+          formControlName="dept_name"
+          placeholder="Enter Department Name"
+        />
+        <small
+          class="error"
+          *ngIf="
+            departmentForm.get('dept_name')?.invalid &&
+            departmentForm.get('dept_name')?.touched
+          "
+        >
+          Department Name is required
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="dept_code">Department Code</label>
+        <input
+          type="text"
+          id="dept_code"
+          formControlName="dept_code"
+          placeholder="Enter Department Code"
+        />
+        <small
+          class="error"
+          *ngIf="
+            departmentForm.get('dept_code')?.invalid &&
+            departmentForm.get('dept_code')?.touched
+          "
+        >
+          Department Code is required
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="dept_state">Department State</label>
+        <input
+          type="text"
+          id="dept_state"
+          formControlName="dept_state"
+          placeholder="Enter Department State"
+        />
+        <small
+          class="error"
+          *ngIf="
+            departmentForm.get('dept_state')?.invalid &&
+            departmentForm.get('dept_state')?.touched
+          "
+        >
+          Department State is required
+        </small>
+      </div>
+
+      <div class="button-group">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="departmentForm.invalid"
+        >
+          Save Changes
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

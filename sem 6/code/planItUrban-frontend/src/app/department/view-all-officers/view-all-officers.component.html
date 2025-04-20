@@ -1,0 +1,41 @@
+<div class="officer-page-container">
+
+  <!-- Side Navigation -->
+  <app-dept-side-nav class="side-nav"></app-dept-side-nav>
+
+  <!-- Main Content -->
+  <div class="officer-content">
+    <h2>All Officers in Department</h2>
+
+    <table class="officer-table">
+      <thead>
+        <tr>
+          <th>Officer ID</th>
+          <th>Officer Name</th>
+          <th>Project Title</th>
+          <th>Task Title</th>
+          <th>Progress (%)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let officer of officers">
+          <td>{{ officer.officer_id }}</td>
+          <td>{{ officer.officer_name }}</td>
+          <td>{{ officer.proj_title || 'N/A' }}</td>
+          <td>{{ officer.task_title || 'No Task Assigned' }}</td>
+          <td>
+            <div class="progress-bar-container">
+              <div 
+                class="progress-bar" 
+                [ngClass]="getProgressClass(officer.task_progress)" 
+                [style.width.%]="officer.task_progress || 0"
+              >
+                {{ officer.task_progress || 0 }}%
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

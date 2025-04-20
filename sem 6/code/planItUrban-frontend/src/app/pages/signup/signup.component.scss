@@ -1,0 +1,67 @@
+.signup-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #edf6f9;
+  flex-direction: column;
+
+  h1 {
+    text-align: center;
+    color: #006d77;
+    margin-bottom: 1.5rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Ensure inputs and buttons are stretched to full width */
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+
+    label {
+      width: 100%;
+      margin-bottom: 0.5rem;
+      color: #333;
+      text-align: left;
+    }
+
+    input,
+    select,
+    .file-upload {
+      width: 100%;
+      padding: 0.8rem; /* Increased padding for better visual consistency */
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 0.9rem; /* Increased font size for readability */
+      margin-bottom: 1.5rem;
+      box-sizing: border-box;
+
+      &:focus {
+        border-color: #83c5be;
+        outline: none;
+      }
+    }
+
+    .btn-primary {
+      padding: 1rem; /* Increase padding to make the button more clickable */
+      border-radius: 5px;
+      background-color: #006d77;
+      color: #fff;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border: none;
+      transition: 0.3s;
+      width: 100%; /* Make the button span the width of the form */
+
+      &:hover {
+        background-color: #83c5be;
+      }
+    }
+  }
+}

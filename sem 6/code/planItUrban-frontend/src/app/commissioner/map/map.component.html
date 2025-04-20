@@ -1,0 +1,49 @@
+<div class="map-page">
+  <!-- Side Navigation -->
+  <app-commissioner-side-nav></app-commissioner-side-nav>
+
+  <!-- Main Content -->
+  <div class="map-content">
+    <h2>Project Locations</h2>
+
+    <!-- Dropdown for project selection -->
+
+
+    <div class="dropdown-container">
+  <label for="projectDropdown">Select Project:</label>
+  <select id="projectDropdown" [(ngModel)]="selectedProject" (change)="showProjectOnMap()">
+    <option *ngFor="let project of approvedProjects" [ngValue]="project">
+  {{ project.proj_title }} - {{ project.proj_location }}
+</option>
+
+  </select>
+</div>
+
+
+
+
+
+    <!-- Map Display -->
+    <div id="map" class="map"></div>
+
+    <!-- Project Insights -->
+    <div *ngIf="selectedProject" class="insights">
+      <h3>Project Insights</h3>
+
+      <div class="insight-card">
+        <div class="insight-left">
+          <p><b>Title:</b> {{ selectedProject.proj_title }}</p>
+          <p><b>Location:</b> {{ selectedProject.proj_location }}</p>
+          <p><b>Description:</b> {{ selectedProject.proj_desc }}</p>
+  
+        </div>
+
+        <div class="insight-right">
+            <p><b>Department:</b> {{ selectedProject.dept_name }}</p>
+          <p><b>Latitude:</b> {{ selectedProject.proj_latitude }}</p>
+          <p><b>Longitude:</b> {{ selectedProject.proj_longitude }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

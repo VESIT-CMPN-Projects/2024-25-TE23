@@ -1,0 +1,176 @@
+<div class="add-project-page">
+  <app-dept-side-nav></app-dept-side-nav>
+  <div class="content">
+    <h2>Add a New Project</h2>
+
+    <form [formGroup]="projectForm" >
+      <div class="form-group">
+        <label for="proj_title">Project Title</label>
+        <input
+          id="proj_title"
+          formControlName="proj_title"
+          type="text"
+          placeholder="Enter project title"
+        />
+        <div
+          *ngIf="
+            projectForm.get('proj_title')?.invalid &&
+            projectForm.get('proj_title')?.touched
+          "
+          class="error"
+        >
+          Project title is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="proj_location">Project Location</label>
+        <input
+          id="proj_location"
+          formControlName="proj_location"
+          type="text"
+          placeholder="Enter project location"
+        />
+        <div
+          *ngIf="
+            projectForm.get('proj_location')?.invalid &&
+            projectForm.get('proj_location')?.touched
+          "
+          class="error"
+        >
+          Location is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="proj_desc">Project Description</label>
+        <textarea
+          id="proj_desc"
+          formControlName="proj_desc"
+          placeholder="Enter project description"
+        ></textarea>
+        <div
+          *ngIf="
+            projectForm.get('proj_desc')?.invalid &&
+            projectForm.get('proj_desc')?.touched
+          "
+          class="error"
+        >
+          Description is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="proj_latitude">Latitude</label>
+        <input
+          id="proj_latitude"
+          formControlName="proj_latitude"
+          type="number"
+          placeholder="Enter latitude"
+        />
+        <div
+          *ngIf="
+            projectForm.get('proj_latitude')?.invalid &&
+            projectForm.get('proj_latitude')?.touched
+          "
+          class="error"
+        >
+          Latitude is required and should be a number.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="proj_longitude">Longitude</label>
+        <input
+          id="proj_longitude"
+          formControlName="proj_longitude"
+          type="number"
+          placeholder="Enter longitude"
+        />
+        <div
+          *ngIf="
+            projectForm.get('proj_longitude')?.invalid &&
+            projectForm.get('proj_longitude')?.touched
+          "
+          class="error"
+        >
+          Longitude is required and should be a number.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="proj_start_date">Start Date</label>
+        <input
+          id="proj_start_date"
+          formControlName="proj_start_date"
+          type="date"
+        />
+        <div
+          *ngIf="
+            projectForm.get('proj_start_date')?.invalid &&
+            projectForm.get('proj_start_date')?.touched
+          "
+          class="error"
+        >
+          Start date is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="proj_end_date">End Date</label>
+        <input id="proj_end_date" formControlName="proj_end_date" type="date" />
+        <div
+          *ngIf="
+            projectForm.get('proj_end_date')?.invalid &&
+            projectForm.get('proj_end_date')?.touched
+          "
+          class="error"
+        >
+          End date is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="proj_estimated_budget">Estimated Budget</label>
+        <input
+          id="proj_estimated_budget"
+          formControlName="proj_estimated_budget"
+          type="number"
+          placeholder="Enter estimated budget"
+        />
+        <div
+          *ngIf="
+            projectForm.get('proj_estimated_budget')?.invalid &&
+            projectForm.get('proj_estimated_budget')?.touched
+          "
+          class="error"
+        >
+          Budget is required and should be a number.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="proj_status">Project Status</label>
+        <select id="proj_status" formControlName="proj_status">
+          <option value="">Select status</option>
+          <option value="pending">Pending</option>
+          <option value="in-progress">In Progress</option>
+          <option value="completed">Completed</option>
+        </select>
+        <div
+          *ngIf="
+            projectForm.get('proj_status')?.invalid &&
+            projectForm.get('proj_status')?.touched
+          "
+          class="error"
+        >
+          Project status is required.
+        </div>
+      </div>
+
+      <button type="submit" class="btn" (click)="registerProject()" [disabled]="projectForm.invalid">
+        Save Project
+      </button>
+    </form>
+  </div>
+</div>

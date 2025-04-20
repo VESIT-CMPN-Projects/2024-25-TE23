@@ -1,0 +1,31 @@
+<div class="login-page">
+  <h1>Login</h1>
+  <form [formGroup]="loginForm" class="form">
+    <label for="username">Username</label>
+    <input
+      type="text"
+      formControlName="username"
+      id="username"
+      name="username"
+      required
+    />
+
+    <label for="password">Password</label>
+    <input
+      type="password"
+      formControlName="password"
+      id="password"
+      name="password"
+      required
+    />
+
+    <label for="role">Role</label>
+    <select id="role" formControlName="role" name="role" required>
+      <option value="commissioner">Commissioner</option>
+      <option value="department">Department</option>
+      <option value="officer">Officer</option>
+    </select>
+
+    <button type="submit" class="btn-primary" (click)="login()">Login</button>
+  </form>
+</div>

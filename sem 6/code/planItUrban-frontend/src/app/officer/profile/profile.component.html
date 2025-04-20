@@ -1,0 +1,74 @@
+<div class="officer-profile-container">
+  <app-officer-side-nav></app-officer-side-nav>
+  <div class="profile-content">
+    <h2>Officer Profile</h2>
+    <form [formGroup]="officerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="officer_name">Officer Name</label>
+        <input
+          type="text"
+          id="officer_name"
+          formControlName="officer_name"
+          placeholder="Enter Officer Name"
+        />
+        <small
+          class="error"
+          *ngIf="
+            officerForm.get('officer_name')?.invalid &&
+            officerForm.get('officer_name')?.touched
+          "
+        >
+          Officer Name is required
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="officer_email">Officer Email</label>
+        <input
+          type="email"
+          id="officer_email"
+          formControlName="officer_email"
+          placeholder="Enter Officer Email"
+        />
+        <small
+          class="error"
+          *ngIf="
+            officerForm.get('officer_email')?.invalid &&
+            officerForm.get('officer_email')?.touched
+          "
+        >
+          Officer Email is required
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="officer_dept">Officer Department</label>
+        <input
+          type="text"
+          id="officer_dept"
+          formControlName="officer_dept"
+          placeholder="Enter Officer's Department"
+        />
+        <small
+          class="error"
+          *ngIf="
+            officerForm.get('officer_dept')?.invalid &&
+            officerForm.get('officer_dept')?.touched
+          "
+        >
+          Officer Department is required
+        </small>
+      </div>
+
+      <div class="button-group">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="officerForm.invalid"
+        >
+          Save Changes
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

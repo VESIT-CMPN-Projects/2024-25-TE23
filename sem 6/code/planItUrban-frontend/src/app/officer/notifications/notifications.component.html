@@ -1,0 +1,39 @@
+<div class="notifications-container">
+  <!-- Side Navigation -->
+  <app-officer-side-nav></app-officer-side-nav>
+
+  <!-- Main Notifications Content -->
+  <div class="notifications-content">
+    <h2 class="notifications-title">Notifications</h2>
+
+    <!-- Notifications Section -->
+    <div class="notifications-section">
+      <h3>Task Notifications</h3>
+      <div class="notification-card" *ngFor="let notification of notifications">
+        <p>You have been assigned a new task: {{ notification.task_title }}</p>
+        <span class="notification-time">{{
+          notification.curr_time 
+        }}</span>
+      </div>
+    </div>
+
+    <!-- Recent Assigned Tasks Section -->
+    <div class="recent-tasks">
+      <h3>Recent Assigned Tasks</h3>
+      <div class="task-list">
+        <div class="task-card" *ngFor="let task of recentTasks">
+          <h4>{{ task.task_title }}</h4>
+          <p>{{ task.task_desc }}</p>
+          <span
+            class="task-status"
+            [ngClass]="getTaskStatusClass(task.task_status)"
+          >
+            {{ task.task_status }}
+          </span>
+          <p class="task-date">Start Date: {{ task.task_start_date | date }}</p>
+          <p class="task-date">End Date: {{ task.task_end_date | date }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

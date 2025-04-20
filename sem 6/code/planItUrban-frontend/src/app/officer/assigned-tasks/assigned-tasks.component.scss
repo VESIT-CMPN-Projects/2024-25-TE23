@@ -1,0 +1,185 @@
+.assigned-tasks-container {
+  display: flex;
+  height: 100vh;
+  background: #f0f4f8;
+
+  app-officer-side-nav {
+    width: 250px;
+    flex-shrink: 0;
+    background: #ffffff;
+    border-right: 1px solid #ccc;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .assigned-tasks-content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+
+    h2.assigned-tasks-title {
+      text-align: center;
+      color: #006d77; 
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    .assigned-tasks {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      transition: box-shadow 0.3s;
+
+      &:hover {
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);  
+      }
+
+      h3 {
+        font-size: 22px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .tasks-table {
+        width: 100%;
+        border-collapse: collapse;
+
+        th, td {
+          padding: 16px;
+          text-align: left;
+          border-bottom: 1px solid #e0e0e0;
+          transition: background 0.3s;
+        }
+
+        th {
+          background-color: #f3f4f6;
+          color: #006d77;    
+          font-size: 15px;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+
+        td {
+          font-size: 14px;
+          color: #4b5563;
+        }
+
+        tr:hover {
+          background: #f0f0f0;   
+        }
+      }
+
+      /* Task Status Colors */
+      .task-status {
+        font-weight: 600;
+        padding: 8px 14px;
+        border-radius: 20px;
+        display: inline-block;
+        transition: transform 0.3s;
+
+        &.completed {
+          background: #10b981;      
+          color: white;
+        }
+
+        &.in-progress {
+          background: #facc15;    
+          color: #333;
+        }
+
+        &.pending {
+          background: #ef4444;      
+          color: white;
+        }
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      /* Progress Bar Styling */
+      .progress-bar {
+        width: 100%;
+        background-color: #e5e7eb;
+        border-radius: 8px;
+        height: 12px;
+        overflow: hidden;
+        position: relative;
+
+        .progress {
+          height: 100%;
+          background: #006d77;   
+          transition: width 0.4s ease-in-out;
+          border-radius: 8px;
+        }
+      }
+
+      /* Range Slider */
+      input[type="range"] {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 8px;
+        background: #ccc;
+        border-radius: 4px;
+        outline: none;
+        transition: background 0.3s;
+
+        &::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          width: 18px;
+          height: 18px;
+          background: #006d77;   
+          border-radius: 50%;
+          cursor: pointer;
+          transition: background 0.3s;
+        }
+
+        &:hover {
+          background: #b3e0dd;  
+        }
+      }
+
+      /* Update Button Styling */
+      .update-btn {
+        background: #006d77;      
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.2s;
+        font-size: 14px;
+        font-weight: bold;
+
+        &:hover {
+          background: #004f58;      
+          transform: translateY(-2px);
+        }
+
+        &:active {
+          background: #003a40;      
+          transform: scale(0.98);
+        }
+      }
+
+  
+      @keyframes fadeInOut {
+        0% {
+          opacity: 0;
+        }
+        20% {
+          opacity: 1;
+        }
+        80% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}
+

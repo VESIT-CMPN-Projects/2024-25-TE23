@@ -1,0 +1,94 @@
+.view-projects-page {
+  display: flex;
+  flex-direction: row;
+  background: #f9fafb;
+  min-height: 100vh;
+
+  app-commissioner-side-nav {
+    width: 250px;
+    flex-shrink: 0;
+    background: #ffffff;
+    border-right: 1px solid #ddd;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .content {
+    flex: 1;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    max-width: 1200px;
+    overflow-x: auto;
+
+    h1 {
+      text-align: center;
+      color: #006d77;
+      margin-bottom: 2rem;
+    }
+
+    .download-options {
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: flex-end;
+
+      .download-btn, .recommendation-button {
+        padding: 0.2rem;
+        margin: 0.5rem;
+        border-radius: 5px;
+        background-color: #006d77;
+        color: #fff;
+        font-size: 1.1rem;
+        cursor: pointer;
+        border: none;
+        transition: 0.3s;
+
+        &:hover {
+          background: #004f5b;
+        }
+      }
+    }
+
+    // .recommendation-button {
+    //   display: flex;
+    //   justify-content: flex-start;
+    
+    //   .recommendation-btn {
+    //     padding: 0.8rem;
+    //     margin: 0.8rem;
+    //     border-radius: 5px;
+    //     background-color: #006d77;
+    //     color: #fff;
+    //     font-size: 1.1rem;
+    //     cursor: pointer;
+    //     border: none;
+    //     transition: 0.3s;
+    
+    //     &:hover {
+    //       background: #004f5b;
+    //     }
+    //   }
+    // }    
+
+    .projects-table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th,
+      td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #f1f5f9;
+      }
+
+      td {
+        background-color: #fff;
+      }
+    }
+  }
+}

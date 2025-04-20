@@ -1,0 +1,75 @@
+
+
+    <div class="view-project-requests-page">
+  <app-commissioner-side-nav></app-commissioner-side-nav>
+
+  <div class="content">
+    <h1>View Project Requests</h1>
+
+    <table class="projects-table">
+      <thead>
+        <tr>
+          <th>Project ID</th>
+          <th>Department</th>
+          <th>Project Title</th>
+          <th>Location</th>
+          <th>Description</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Estimated Budget</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr *ngFor="let project of approvedProjects">
+          
+          <td>{{ project.proj_id }}</td>
+          <td>{{ project.dept_name }}</td>
+          <td>{{ project.proj_title }}</td>
+          <td>{{ project.proj_location }}</td>
+          <td>{{ project.proj_desc }}</td>
+          <td>{{ project.proj_latitude }}</td>
+          <td>{{ project.proj_longitude }}</td>
+          <td>{{ project.proj_start_date }}</td>
+          <td>{{ project.proj_end_date }}</td>
+          <td>{{ project.proj_estimated_budget }}</td>
+          <td class="actions">
+            <div class="button-container">
+              <button
+                *ngIf="!project.status"
+                class="approve-btn"
+                (click)="approveProject(project.proj_id)"
+              >
+                Approve
+              </button>
+              <button
+                *ngIf="!project.status"
+                class="reject-btn"
+                (click)="rejectProject(project.proj_id)"
+              >
+                Reject
+              </button>
+              <button
+                *ngIf="project.status === 'approved'"
+                class="approved-btn"
+                disabled
+              >
+                Approved
+              </button>
+              <button
+                *ngIf="project.status === 'rejected'"
+                class="rejected-btn"
+                disabled
+              >
+                Rejected
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

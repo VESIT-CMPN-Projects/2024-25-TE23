@@ -1,0 +1,100 @@
+<div class="add-officer-page">
+  <app-dept-side-nav></app-dept-side-nav>
+  <div class="content">
+    <h2>Add an Officer</h2>
+    <form [formGroup]="officerForm">
+      <div class="form-group">
+        <label for="officer_name">Officer Name</label>
+        <input
+          id="officer_name"
+          formControlName="officer_name"
+          type="text"
+          placeholder="Enter officer name"
+        />
+        <div
+          *ngIf="officerForm.controls['officer_name'].invalid && officerForm.controls['officer_name'].touched"
+          class="error"
+        >
+          Officer Name is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="officerEmail">Officer Email</label>
+        <input
+          id="officerEmail"
+          formControlName="officerEmail"
+          type="email"
+          placeholder="Enter officer email"
+        />
+        <div
+          *ngIf="officerForm.controls['officerEmail'].invalid && officerForm.controls['officerEmail'].touched"
+          class="error"
+        >
+          A valid email is required.
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="officer_dept">Officer Department</label>
+        <input
+          id="officer_dept"
+          formControlName="officer_dept"
+          type="text"
+          readonly
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="govt_identity_proof">Upload Govt Identity Proof</label>
+        <input
+          id="govt_identity_proof"
+          formControlName="govt_identity_proof"
+          type="file"
+          (change)="onFileChange($event, 'govt_identity_proof')"
+        />
+        <div
+          *ngIf="officerForm.controls['govt_identity_proof'].invalid && officerForm.controls['govt_identity_proof'].touched"
+          class="error"
+        >
+          Identity proof is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="certificate_of_incorporation">Upload Certificate of Incorporation</label>
+        <input
+          id="certificate_of_incorporation"
+          formControlName="certificate_of_incorporation"
+          type="file"
+          (change)="onFileChange($event, 'certificate_of_incorporation')"
+        />
+        <div
+          *ngIf="officerForm.controls['certificate_of_incorporation'].invalid && officerForm.controls['certificate_of_incorporation'].touched"
+          class="error"
+        >
+          Certificate of incorporation is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="attestation_officer_proof">Upload Attestation Officer Proof</label>
+        <input
+          id="attestation_officer_proof"
+          formControlName="attestation_officer_proof"
+          type="file"
+          (change)="onFileChange($event, 'attestation_officer_proof')"
+        />
+        <div
+          *ngIf="officerForm.controls['attestation_officer_proof'].invalid && officerForm.controls['attestation_officer_proof'].touched"
+          class="error"
+        >
+          Attestation officer proof is required.
+        </div>
+      </div>
+
+      <button type="submit" (click)="registerOfficer()" [disabled]="officerForm.invalid">Submit</button>
+    </form>
+  </div>
+</div>

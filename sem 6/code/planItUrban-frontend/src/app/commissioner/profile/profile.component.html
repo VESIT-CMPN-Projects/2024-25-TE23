@@ -1,0 +1,55 @@
+<div class="commissioner-profile-container">
+  <app-commissioner-side-nav></app-commissioner-side-nav>
+  <div class="profile-content">
+    <h2>Commissioner Profile</h2>
+    <form [formGroup]="commissionerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="commissioner_name">Commissioner Name</label>
+        <input
+          type="text"
+          id="commissioner_name"
+          formControlName="commissioner_name"
+          placeholder="Enter Commissioner Name"
+        />
+        <small
+          class="error"
+          *ngIf="
+            commissionerForm.get('commissioner_name')?.invalid &&
+            commissionerForm.get('commissioner_name')?.touched
+          "
+        >
+          Commissioner Name is required
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="commissioner_email">Commissioner Email</label>
+        <input
+          type="email"
+          id="commissioner_email"
+          formControlName="commissioner_email"
+          placeholder="Enter Commissioner Email"
+        />
+        <small
+          class="error"
+          *ngIf="
+            commissionerForm.get('commissioner_email')?.invalid &&
+            commissionerForm.get('commissioner_email')?.touched
+          "
+        >
+          Commissioner Email is required
+        </small>
+      </div>
+
+      <div class="button-group">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="commissionerForm.invalid"
+        >
+          Save Changes
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

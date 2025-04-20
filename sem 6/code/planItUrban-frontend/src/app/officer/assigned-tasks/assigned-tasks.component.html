@@ -1,0 +1,51 @@
+<div class="assigned-tasks-container">
+  <app-officer-side-nav></app-officer-side-nav>
+
+  <div class="assigned-tasks-content">
+    <h2 class="assigned-tasks-title">Assigned Tasks</h2>
+
+    <div class="assigned-tasks">
+      <h3>Tasks Assigned to You</h3>
+
+      <table class="tasks-table">
+        <thead>
+          <tr>
+            <th>Task Title</th>
+            <th>Description</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+            <th>Progress</th>
+            <th>Update</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of assignedTasks">
+            <td>{{ task.task_title }}</td>
+            <td>{{ task.task_desc }}</td>
+            <td>{{ task.task_start_date | date }}</td>
+            <td>{{ task.task_end_date | date }}</td>
+            
+            <td>
+              <span class="task-status" [ngClass]="getTaskStatusClass(task.task_status)">
+                {{ task.task_status }}
+              </span>
+            </td>
+
+            <td>
+              <input type="range" min="0" max="100" [(ngModel)]="task.task_progress" />
+              <span>{{ task.task_progress }}%</span>
+            </td>
+
+            <td>
+              <button (click)="updateProgress(task.task_id, task.task_progress)" class="update-btn">
+                Update Progress
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

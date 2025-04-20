@@ -1,0 +1,49 @@
+<div class="signup-page">
+  <h1>Officer Sign Up</h1>
+  <!-- Officer Form -->
+  <form
+    [formGroup]="officerForm"
+    class="form"
+  >
+    <label for="officerName">Officer Name</label>
+    <input
+      type="text"
+      id="officerName"
+      formControlName="officer_name"
+    />
+
+    <label for="officerEmail">Email</label>
+    <input
+      type="email"
+      id="officerEmail"
+      formControlName="officerEmail"
+      
+    />
+
+    <label for="officerName">Officer Department</label>
+    <input
+      type="text"
+      id="officerDepartment"
+      formControlName="officer_dept"
+      
+    />
+
+    <!-- <label for="govtIdProof">Government ID Proof</label>
+    <input
+      type="file"
+      id="govtIdProof"
+      (change)="handleFileUpload($event, 'idProof')",
+      formControlName="govt_identity_proof"
+    />
+
+    <label for="certOfIncorp">Certificate of Incorporation</label>
+    <input
+      type="file"
+      id="certOfIncorp"
+      (change)="handleFileUpload($event, 'cert')",
+      formControlName="certificate_of_incorporation"
+    /> -->
+
+    <button type="submit" class="btn-primary" (click)="registerOfficer()">Sign Up</button>
+  </form>
+</div>

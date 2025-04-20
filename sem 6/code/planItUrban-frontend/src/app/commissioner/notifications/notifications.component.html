@@ -1,0 +1,22 @@
+<div class="notifications-container">
+  <!-- Side Navigation -->
+  <app-commissioner-side-nav></app-commissioner-side-nav>
+
+  <!-- Main Notifications Content -->
+  <div class="notifications-content">
+    <h2 class="notifications-title">Project Notifications</h2>
+
+    <!-- Notifications Section -->
+    <div class="notifications-section">
+      <h3>Recent Notifications</h3>
+      <div class="notification-card" *ngFor="let notification of notifications">
+        <h4>{{ notification.proj_title }} is Approved and is ready to start.</h4>
+        <!-- <p>{{ notification.notification_description }}</p> -->
+
+        <span class="notification-time">{{
+          notification.curr_time
+        }}</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="dashboard-container">
+
+  <!-- Side Navigation -->
+  <app-officer-side-nav></app-officer-side-nav>
+
+  <!-- Main Dashboard Content -->
+  <div class="dashboard-content">
+    <h2 class="dashboard-title">Officer Dashboard</h2>
+
+    <!-- Task Analytics Section -->
+    <div class="analytics-section">
+      <div class="card">
+        <h3>Task Progress</h3>
+        <canvas id="taskProgressPieChart"></canvas>
+      </div>
+      <div class="card">
+        <h3>Task Completion</h3>
+        <canvas id="taskCompletionBarChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Recent Tasks Section -->
+    <div class="recent-updates">
+      <div class="recent-card">
+        <h3>Assigned Tasks</h3>
+        <ul *ngFor="let task of assignedTasks">
+          <li>
+            {{task.task_title}}<span class="status">{{task.task_status}}</span>
+          </li>
+          <!-- <li>
+            Task 2: Task B - <span class="status completed">Completed</span>
+          </li>
+          <li>Task 3: Task C - <span class="status pending">Pending</span></li> -->
+        </ul>
+      </div>
+    </div>
+
+    <!-- Other Analytics Section -->
+    <div class="other-analytics">
+      <div class="card">
+        <h3>Total Tasks</h3>
+        <p class="stat-number">{{assignedTasksCount}}</p>
+      </div>
+      
+    </div>
+  </div>
+</div>

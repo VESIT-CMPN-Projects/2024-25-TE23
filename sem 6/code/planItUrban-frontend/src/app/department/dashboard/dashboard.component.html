@@ -1,0 +1,68 @@
+<div class="dashboard-container">
+  <!-- Side Navigation -->
+  <app-dept-side-nav></app-dept-side-nav>
+
+  <!-- Main Dashboard Content -->
+  <div class="dashboard-content">
+    <h2 class="dashboard-title">Department Dashboard</h2>
+
+    <button (click)="downloadReport()" class="btn btn-primary download-btn">Download Latest Report</button>
+
+        <div *ngIf="isDownloading" class="snackbar">
+          Downloading report, please wait...
+    </div>
+
+
+    <!-- Analytics Section -->
+    <div class="analytics-section">
+      <div class="card">
+        <h3>Budget Analysis</h3>
+        <canvas id="budgetPieChart"></canvas>
+      </div>
+      <div class="card">
+        <h3>Task Completion</h3>
+        <canvas id="taskBarChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Recent Updates Section -->
+    <div class="recent-updates">
+      <div class="recent-card">
+        <h3>Recent Projects</h3>
+        <ul *ngFor="let project of projects">
+          <li>
+           {{project.proj_title}} <span class="status in-progress">{{project.proj_status}}</span>
+          </li>
+          <!-- <li>
+            Project Beta - <span class="status completed">Completed</span>
+          </li>
+          <li>Project Gamma - <span class="status pending">Pending</span></li> -->
+        </ul>
+      </div>
+      <div class="recent-card">
+        <h3>Recent Tasks</h3>
+        <ul *ngFor="let task of recentTasks">
+          <li>{{task.task_title}}-<span class="status completed">{{task.task_status}}</span></li>
+          <!-- <li>Task B - <span class="status in-progress">In Progress</span></li>
+          <li>Task C - <span class="status pending">Pending</span></li> -->
+        </ul>
+      </div>
+    </div>
+
+    <!-- Other Analytics Section -->
+    <div class="other-analytics">
+      <div class="card">
+        <h3>Total Projects</h3>
+        <p class="stat-number">{{countProjs}}</p>
+      </div>
+      <div class="card">
+        <h3>Total Tasks</h3>
+        <p class="stat-number">{{countTask}}</p>
+      </div>
+      <div class="card">
+        <h3>Active Officers</h3>
+        <p class="stat-number">{{countOfficers}}</p>
+      </div>
+    </div>
+  </div>
+</div>

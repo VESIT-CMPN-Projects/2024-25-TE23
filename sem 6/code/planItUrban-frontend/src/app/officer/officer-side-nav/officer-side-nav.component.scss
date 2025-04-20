@@ -1,0 +1,60 @@
+.officer-side-nav {
+  width: 250px;
+  height: 100vh;
+  background-color: #006d77;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+
+  .officer-header {
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background-color: #006d77;
+    border-bottom: 1px solid #006d77;
+  }
+
+  .nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+
+    li {
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      border-bottom: 1px solid #00474f;
+      transition: background-color 0.3s ease;
+
+      .icon {
+        margin-right: 1rem;
+        font-size: 1.2rem;
+      }
+
+      &:hover {
+        background-color: #83c5be;
+        color: #000;
+      }
+
+      &.active {
+        background-color: #83c5be;
+        color: #000;
+        font-weight: bold;
+
+        .icon {
+          color: #000;
+        }
+      }
+    }
+  }
+}

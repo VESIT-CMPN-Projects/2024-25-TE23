@@ -1,0 +1,86 @@
+.department-profile-container {
+  display: flex;
+  height: 100vh;
+  background: #f9fafb;
+
+  app-dept-side-nav {
+    width: 250px;
+    flex-shrink: 0;
+    background: #ffffff;
+    border-right: 1px solid #ddd;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    text-align: center;
+    color: #006d77;
+    margin-bottom: 2rem;
+  }
+
+  .profile-content {
+    flex: 1;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+
+    form {
+      .form-group {
+        margin-bottom: 20px;
+
+        label {
+          font-size: 1rem;
+          color: #333;
+          display: block;
+          margin-bottom: 0.5rem;
+        }
+
+        input {
+          width: 100%;
+          padding: 10px;
+          font-size: 14px;
+          border: 1px solid #e5e7eb;
+          border-radius: 5px;
+          outline: none;
+
+          &:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 3px rgba(59, 130, 246, 0.5);
+          }
+        }
+
+        small.error {
+          color: #ef4444;
+          font-size: 12px;
+          margin-top: 5px;
+          display: block;
+        }
+      }
+
+      .button-group {
+        text-align: right;
+
+        .btn-primary {
+          padding: 0.8rem;
+          border-radius: 5px;
+          background-color: #006d77;
+          color: #fff;
+          font-size: 1.1rem;
+          cursor: pointer;
+          border: none;
+          transition: 0.3s;
+
+          &:disabled {
+            background: #d1d5db;
+            cursor: not-allowed;
+          }
+
+          &:hover:not(:disabled) {
+            background: #006d77;
+          }
+        }
+      }
+    }
+  }
+}

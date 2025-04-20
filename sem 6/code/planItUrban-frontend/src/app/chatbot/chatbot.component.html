@@ -1,0 +1,28 @@
+<div class="chatbot-icon" (click)="toggleBot()" *ngIf="!botVisible">
+  <i class="fas fa-comments"></i>
+</div>
+
+<div class="chatbot-container" *ngIf="botVisible">
+  <div class="chat-header">
+    <h3>AI Assistant</h3>
+    <button class="close-btn" (click)="toggleBot()">X</button>
+  </div>
+
+  <div class="chat-history">
+    <div
+      *ngFor="let chat of chatHistory"
+      [ngClass]="{
+        'user-message': chat.sender === 'user',
+        'bot-message': chat.sender === 'bot'
+      }"
+    >
+      <p [innerHTML]="chat.message"></p>
+      <div *ngIf="chat.loading" class="loading-dots">...</div>
+    </div>
+  </div>
+
+  <div class="input-container">
+    <input [(ngModel)]="userMessage" placeholder="Ask me anything..." />
+    <button (click)="sendMessage()" [disabled]="isLoading">Send</button>
+  </div>
+</div>

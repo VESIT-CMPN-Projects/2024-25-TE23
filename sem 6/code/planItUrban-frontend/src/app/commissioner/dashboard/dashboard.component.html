@@ -1,0 +1,174 @@
+<div class="commissioner-dashboard-container">
+  <div class="dashboard-layout">
+    <!-- Side Navigation -->
+    <app-commissioner-side-nav class="side-nav"></app-commissioner-side-nav>
+
+    <!-- Main Dashboard Content -->
+    <div class="dashboard-content">
+      <h2 class="dashboard-title">Commissioner</h2>
+
+      <!-- Analytics Section -->
+      <!-- <div class="analytics-section">
+       
+        <div class="analytics-row">
+          <div class="card">
+            <h3>Project Status Distribution</h3>
+            <canvas id="projectPieChart"></canvas>
+          </div>
+          <div class="card">
+            <h3>Department-wise Projects</h3>
+            <canvas id="departmentBarChart"></canvas>
+          </div>
+        </div>
+
+        <div class="analytics-row">
+          <div class="card">
+            <h3>Location-wise Projects</h3>
+            <canvas id="locationBarChart"></canvas>
+          </div>
+          <div class="card">
+            <h3>Budget Analysis</h3>
+            <canvas id="budgetPieChart"></canvas>
+          </div>
+        </div>
+      </div> -->
+
+
+         <div class="analytics-section">
+        <!-- Row 1 -->
+        <div class="analytics-row">
+          <div class="card">
+            <h3>Project Status Distribution</h3>
+            <canvas id="projectPieChart"></canvas>
+          </div>
+          <div class="card">
+            <h3>Budget Analysis</h3>
+            <canvas id="budgetPieChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <!-- <div class="analytics-row">
+          <div class="card">
+            <h3>Location-wise Projects</h3>
+            <canvas id="locationBarChart"></canvas>
+          </div>
+           <div class="card">
+            <h3>Department-wise Projects</h3>
+            <canvas id="departmentBarChart"></canvas>
+          </div>
+         
+        </div> -->
+      </div>
+
+      <!-- Ongoing Projects Section -->
+      <div
+        class="project-section ongoing-projects"
+        *ngIf="inprogressProjects.length > 0"
+      >
+        <h3>Ongoing Projects</h3>
+        <div class="projects-list">
+          <div *ngFor="let project of inprogressProjects" class="project-item">
+            <div class="project-info">
+              <h4>{{ project.proj_title }}</h4>
+              <p>{{ project.proj_desc }}</p>
+              <p><strong>Location:</strong> {{ project.proj_location }}</p>
+              <p><strong>Start Date:</strong> {{ project.proj_start_date }}</p>
+              <p><strong>End Date:</strong> {{ project.proj_end_date }}</p>
+            </div>
+            <div
+              class="project-status"
+              *ngIf="project.proj_status === 'in-progress'"
+            >
+              <span class="status ongoing">
+                {{ project.proj_status }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Completed Projects Section -->
+      <div
+        class="project-section completed-projects"
+        *ngIf="completedProjects.length > 0"
+      >
+        <h3>Completed Projects</h3>
+        <div class="projects-list">
+          <div *ngFor="let project of completedProjects" class="project-item">
+            <div class="project-info">
+              <h4>{{ project.proj_title }}</h4>
+              <p>{{ project.proj_desc }}</p>
+              <p><strong>Location:</strong> {{ project.proj_location }}</p>
+              <p><strong>Start Date:</strong> {{ project.proj_start_date }}</p>
+              <p><strong>End Date:</strong> {{ project.proj_end_date }}</p>
+            </div>
+            <div class="project-status">
+              <span class="status completed">
+                {{ project.proj_status }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="project-section pending-projects"
+        *ngIf="pendingProjects.length > 0"
+      >
+        <h3>Pending Projects</h3>
+        <div class="projects-list">
+          <div *ngFor="let project of pendingProjects" class="project-item">
+            <div class="project-info">
+              <h4>{{ project.proj_title }}</h4>
+              <p>{{ project.proj_desc }}</p>
+              <p><strong>Location:</strong> {{ project.proj_location }}</p>
+              <p><strong>Start Date:</strong> {{ project.proj_start_date }}</p>
+              <p><strong>End Date:</strong> {{ project.proj_end_date }}</p>
+            </div>
+            <div class="project-status">
+              <span class="status pending">
+                {{ project.proj_status }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pending Requests Section -->
+      <!-- <div class="pending-requests">
+        <h3>Pending Requests</h3>
+        <p>{{ pendingRequestsCount }} Pending Requests</p>
+      </div> -->
+
+      <!-- Total Requests Section -->
+      <div class="total-requests">
+        <h3>Total Requests</h3>
+        <p>{{ totalRequestsCount }} Requests</p>
+      </div>
+
+      <!-- Recent Notifications Section -->
+      <div class="recent-notifications">
+        <h3>Recent Notifications</h3>
+        <div
+          *ngFor="let notification of notifications"
+          class="notification-item"
+        >
+          <div class="notification-info">
+            <h5>
+              {{ notification.proj_title }} is Approved and is ready to Start.
+            </h5>
+            <!-- <p>{{ notification.notification_description }}</p> -->
+
+            <p>
+              <small>{{ notification.curr_time }}</small>
+            </p>
+          </div>
+          <div class="notification-flag">
+            <i [ngClass]="getFlagColor(notification)" class="fa"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

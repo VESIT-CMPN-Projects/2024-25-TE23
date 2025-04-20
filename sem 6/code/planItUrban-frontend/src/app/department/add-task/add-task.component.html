@@ -1,0 +1,170 @@
+<div class="add-task-page">
+  <app-dept-side-nav></app-dept-side-nav>
+  <div class="content">
+    <h2>Add a Task</h2>
+    <form [formGroup]="taskForm" >
+
+      <div class="form-group">
+  <label for="dept_name">Department</label>
+  <input
+    id="dept_name"
+    formControlName="dept_name"
+    type="text"
+    placeholder="Department Name"
+    readonly
+  />
+</div>
+
+
+      <div class="form-group">
+        <label for="task_title">Task Title</label>
+        <input
+          id="task_title"
+          formControlName="task_title"
+          type="text"
+          placeholder="Enter task title"
+        />
+        <div
+          *ngIf="
+            taskForm.controls['task_title'].invalid &&
+            taskForm.controls['task_title'].touched
+          "
+          class="error"
+        >
+          Task title is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="task_desc">Task Description</label>
+        <textarea
+          id="task_desc"
+          formControlName="task_desc"
+          placeholder="Enter task description"
+        ></textarea>
+        <div
+          *ngIf="
+            taskForm.controls['task_desc'].invalid &&
+            taskForm.controls['task_desc'].touched
+          "
+          class="error"
+        >
+          Task description is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="task_assign_to_officer">Assign to Officer</label>
+        <select
+          id="task_assign_to_officer"
+          formControlName="task_assign_to_officer"
+        >
+          <option value="" disabled>Select Officer</option>
+          <option *ngFor="let officer of officers" [value]="officer.officer_id">
+            {{ officer.officer_name }}
+          </option>
+        </select>
+        <div
+          *ngIf="
+            taskForm.controls['task_assign_to_officer'].invalid &&
+            taskForm.controls['task_assign_to_officer'].touched
+          "
+          class="error"
+        >
+          Assigning to an officer is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+  <label for="proj_id">Assign to Project</label>
+  <select id="proj_id" formControlName="proj_id" required>
+    <option value="" disabled>Select Project</option>
+    <option *ngFor="let project of projects" [value]="project.proj_id">
+      {{ project.proj_title }}
+    </option>
+  </select>
+  <div
+    *ngIf="taskForm.controls['proj_id'].invalid && taskForm.controls['proj_id'].touched"
+    class="error"
+  >
+    Assigning a project is required.
+  </div>
+</div>
+
+
+      <div class="form-group">
+        <label for="task_start_date">Start Date</label>
+        <input
+          id="task_start_date"
+          formControlName="task_start_date"
+          type="date"
+        />
+        <div
+          *ngIf="
+            taskForm.controls['task_start_date'].invalid &&
+            taskForm.controls['task_start_date'].touched
+          "
+          class="error"
+        >
+          Start date is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="task_end_date">End Date</label>
+        <input id="task_end_date" formControlName="task_end_date" type="date" />
+        <div
+          *ngIf="
+            taskForm.controls['task_end_date'].invalid &&
+            taskForm.controls['task_end_date'].touched
+          "
+          class="error"
+        >
+          End date is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="task_status">Task Status</label>
+        <select id="task_status" formControlName="task_status">
+          <option value="" disabled>Select Status</option>
+          <option value="Pending">Pending</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Completed">Completed</option>
+        </select>
+        <div
+          *ngIf="
+            taskForm.controls['task_status'].invalid &&
+            taskForm.controls['task_status'].touched
+          "
+          class="error"
+        >
+          Task status is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="task_progress">Task Progress</label>
+        <input
+          id="task_progress"
+          formControlName="task_progress"
+          type="number"
+          placeholder="Enter progress percentage"
+          min="0"
+          max="100"
+        />
+        <div
+          *ngIf="
+            taskForm.controls['task_progress'].invalid &&
+            taskForm.controls['task_progress'].touched
+          "
+          class="error"
+        >
+          Task progress is required and should be between 0 and 100.
+        </div>
+      </div>
+
+      <button type="submit" (click)="registerTask()" [disabled]="taskForm.invalid">Submit</button>
+    </form>
+  </div>
+</div>

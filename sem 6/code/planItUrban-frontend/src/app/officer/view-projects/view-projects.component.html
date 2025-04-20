@@ -1,0 +1,46 @@
+<div class="view-projects-page">
+  <app-officer-side-nav></app-officer-side-nav>
+  <div class="content">
+    <h1>View All Projects</h1>
+
+    <div class="download-options">
+      <button (click)="downloadExcel()" class="download-btn">
+        Download as Excel
+      </button>
+      <button (click)="downloadPdf()" class="download-btn">
+        Download as PDF
+      </button>
+    </div>
+
+    <table class="projects-table">
+      <thead>
+        <tr>
+          <th>Project ID</th>
+          <th>Project Title</th>
+          <th>Location</th>
+          <th>Description</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Estimated Budget</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let project of projects">
+          <td>{{ project.proj_id }}</td>
+          <td>{{ project.proj_title }}</td>
+          <td>{{ project.proj_location }}</td>
+          <td>{{ project.proj_desc }}</td>
+          <td>{{ project.proj_latitude }}</td>
+          <td>{{ project.proj_longitude }}</td>
+          <td>{{ project.proj_start_date }}</td>
+          <td>{{ project.proj_end_date }}</td>
+          <td>{{ project.proj_estimated_budget }}</td>
+          <td>{{ project.proj_status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

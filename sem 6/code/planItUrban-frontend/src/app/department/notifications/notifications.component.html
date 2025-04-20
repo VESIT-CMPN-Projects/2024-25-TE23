@@ -1,0 +1,70 @@
+<div class="notifications-container">
+  <!-- Side Navigation inside Notifications Component -->
+  <app-dept-side-nav></app-dept-side-nav>
+
+  <!-- Main Content Area for Notifications -->
+  <div class="content">
+    <h2>Notifications</h2>
+
+    <!-- Officers Section (Table format) -->
+    <div class="officers">
+      <h3>Officers Registered for Your Department</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let officer of officers">
+            <td>{{ officer.officer_name }}</td>
+            <td>{{ officer.officer_email }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Overlapping Projects Section -->
+    <div class="overlapping-projects">
+      <h3>Overlapping Projects</h3>
+      <div *ngIf="overlappingProjects.length > 0; else noOverlap">
+        <ul>
+          <li *ngFor="let project of overlappingProjects">
+            <i class="fa fa-flag" style="color: red"></i>
+            <!-- Red Flag Icon -->
+            <strong>{{ project.proj_title }}</strong
+            ><br />
+            <span>{{ project.description }}</span
+            ><br />
+            <span>
+              Date: {{ project.start_date | date : "shortDate" }} to
+              {{ project.end_date | date : "shortDate" }}
+            </span>
+            <br />
+            <button (click)="showProjectDetails(project)">
+              Show More Details
+            </button>
+            <div *ngIf="project.showDetails">
+              <ul>
+                <li><strong>Location:</strong> {{ project.location }}</li>
+                <li><strong>Latitude:</strong> {{ project.latitude }}</li>
+                <li>
+                  <strong>Longitude:</strong> {{ project.longitude }}
+                </li>
+                <li>
+                  <strong>Estimated Budget:</strong>
+                  {{ project.estimated_budget | currency }}
+                </li>
+                <li><strong>Status:</strong> {{ project.status }}</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <ng-template #noOverlap>
+        <p>No overlapping projects found.</p>
+      </ng-template>
+    </div>
+  </div>
+</div>
