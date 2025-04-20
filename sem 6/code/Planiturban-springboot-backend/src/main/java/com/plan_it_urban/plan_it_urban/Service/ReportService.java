@@ -25,9 +25,10 @@ public class ReportService {
     private JdbcTemplate jdbcTemplate;
 
 
+    @Value("${apikey}")
+    private String apikey;
 
-    private final String GEMINI_API_KEY = "AIzaSyAUUosEUHY49ehxJce4de7AHefkjnzESLk";
-    private final String GEMINI_URL =  "https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=" + GEMINI_API_KEY;
+    private final String GEMINI_URL =  "https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=" + apikey;
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy");
 
     public byte[] generateReport(int departmentId) throws Exception {

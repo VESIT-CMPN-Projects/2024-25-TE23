@@ -19,7 +19,10 @@ public class ChatbotService {
     @Autowired
     private ProjectDAO projectDAO;
 
-    private static final String GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=AIzaSyAUUosEUHY49ehxJce4de7AHefkjnzESLk";
+    @Value("${apikey}")
+    private String apikey;
+
+    private static final String GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key="+apikey;
 
 
 
